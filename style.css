@@ -1,0 +1,80 @@
+body{
+  height: 100vh; /* Ajusta la altura de la ventana para cubrir todo el alto visible */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:linear-gradient(135deg, #ae9e84,#332d18);
+  font-family: sans-serif;
+  overflow: hidden; /* Oculta el desbordamiento de contenido */
+}
+
+.clock-container{
+  display: flex;/* Organiza los elementos en un contenedor flexible con dirección inversa */
+  flex-direction: row-reverse;
+  align-items: center;
+  gap: 20px;
+}
+#clock{
+  font-size: 6rem;
+  font-weight: 900;/* Grosor del texto */
+  padding: 25px 30px;
+  border-radius: 15px;
+  border: 3px solid #fff;
+  color: rgba(146, 113, 4, 0.723);
+  text-shadow: 0 0 10px rgba(146, 113, 4, 0.723) , 0 0 20px rgb(255, 191, 0) , 0 0 30px rgb(255, 255, 255);/* Efecto de sombra en el texto */
+  box-shadow: 0  0 15px rgba(146, 113, 4, 0.723), 0 0 25px rgb(253, 253, 253);/* Sombra alrededor del elemento */
+  animation: pulse 2s infinite;/* Animación de pulsación infinita */
+}
+#day{
+
+  border: 3px solid #ffffff;/* Bordes con color sólido */
+  border-radius: 15px;/* Bordes redondeados */
+  padding: 25px 30px; /* Espaciado interno del día */
+  color: rgba(248, 190, 0, 0.723);
+  text-shadow: 0 0 10px rgba(146, 113, 4, 0.723) , 0 0 20px rgb(255, 191, 0) , 0 0 30px rgb(255, 255, 255); /* Efecto de sombra en el texto */
+  box-shadow: 0  0 15px rgba(146, 113, 4, 0.723), 0 0 25px rgb(253, 253, 253);/* Sombra alrededor del elemento */
+  animation: pulse 2s infinite;/* Animación de pulsación infinita */
+  font-size: 1.5rem;
+  opacity: 0.8;
+}
+
+/* Definición de la animación "pulse" */
+@keyframes pulse{
+  0%,100%{
+    border-color:rgba(146, 113, 4, 0.723);/* Cambia el color del borde */
+    box-shadow: 0 0 15px rgba(146, 113, 4, 0.723), 0 0 25px rgb(255, 255, 255);/* Ajusta las sombras en los extremos de la animación */
+  }
+  50%{
+    border-color: rgb(255, 255, 255);/* Cambia el color del borde en el punto medio */
+    box-shadow: 0 0 20px rgb(255, 255, 255), 0 0 30px rgba(146, 113, 4, 0.723);/* Ajusta las sombras en el punto medio */
+  }
+}
+/* Media query para pantallas con ancho máximo de 768px */
+@media (max-width: 768px) {
+  .clock-container {
+    flex-direction: column;/* Cambia la dirección a columna */
+    gap: 15px;/* Reduce el espaciado entre elementos */
+  }
+
+  #clock {
+    font-size: 4rem;
+    padding: 20px 25px;
+  }
+
+  #day {
+    font-size: 1.2rem;
+    padding: 15px 20px;
+  }
+}
+/* Media query para pantallas con ancho máximo de 480px */
+@media (max-width: 480px) {
+  #clock {
+    font-size: 3rem;/* Reduce aún más el tamaño del texto */
+    padding: 15px 20px;
+  }
+
+  #day {
+    font-size: 1rem;
+    padding: 10px 15px;
+  }
+}
